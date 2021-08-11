@@ -1,0 +1,170 @@
+# OpenAPI Version
+openapi: 3.0.2
+
+# This is your document metadata.
+info:
+  version: 0.0.1
+  title: OAuth - clientCredentials flow API
+  description: |
+    An example API for OAuth authentication
+    by means of cliente credentials.
+
+
+# Target Server of the API
+servers: 
+  - url: https://paweltutka-eval-test.apigee.net/softserve_oauth
+
+# Paths
+paths:
+  '/accesstoken':
+    post:
+      security:
+        - basicAuth: []
+      summary: 'Get OAuth token by means of client credentials'
+      description: |
+        Provides a bearer token to the client.
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: grant_type
+          in: formData
+          description: |
+            The grant type to be used
+            when requesting a token.
+          required: true
+          schema:
+            type: string
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bearerToken:
+                    $ref: '#/components/schemas/bearerToken'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ErrorCode:
+                    type: string
+                    description: |
+                      Defaults to invalid_request.
+                  Error:
+                    type: string
+                    description: |
+                      Outputs undefined grant type.
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Not found
+
+
+# security mechanisms used
+security:
+  - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:   
+    # bearerToken object
+    bearerToken:
+      title: Bearer Token
+      type: object
+      properties:
+        refresh_token_expires_in:
+          description: |
+            Expiration of refresh token. Defaults to "0".  
+          type: string
+        api_product_list:
+          type: array
+          description: |
+            Products associated with the OAuth token.
+          items:
+            type: string
+          example:
+            - test_product
+        api_product_list_json:
+          type: array
+          description: |
+            Products associated with the OAuth token.
+          items:
+            type: string
+          example:
+            - test_product
+        organization_name:
+          type: string
+          description: |
+            The name of the organization.
+          example: 'eval-org'
+        developer.email:
+          type: string
+          description: |
+            The email address of the developer.
+          example: 'pawel@example.com'
+        token_type:
+          type: string
+          description: |
+            The type of token that is distributed.
+          example: 'bearerToken'
+        issued_at:
+          type: string
+          description: |
+            The timestamp when the token was issued.
+          example: '1628711549345'
+        client_id:
+          type: string
+          description: |
+            The ID (API Key) of the client
+            that requested the token.
+          example: 'veK86MDDYlItCojArSqHc9FJ6JifDx1S'
+        access_token:
+          type: string
+          description: |
+            The token that was issued.
+          example: 'tRMlwthL2tfpebNlvS92kpqKdoKi'
+        application_name:
+          type: string
+          description: |
+            The ID of the Apigee developer app.
+          example: '9dffe606-28cd-4a3e-8240-02e6da949997'
+        scope:
+          type: string
+          description: |
+            The scope of the token.
+          example: 'read'
+        expires_in:
+          type: string
+          description: |
+            The expiration time of token in seconds.
+          example: '599'
+        refresh_count:
+          type: string
+          description: |
+            The count how many times
+            the token can be refreshed.
+            Defaults to 0.
+          example: '0'
+        status:
+          type: string
+          description: |
+            Approval status. Defaults to 'approved'
+          example: 'approved'
