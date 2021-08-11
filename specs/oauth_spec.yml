@@ -44,8 +44,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  bearerToken:
-                    $ref: '#/components/schemas/bearerToken'
+                  $ref: '#/components/schemas/bearerToken'
         '400':
           description: Bad Request
           content:
