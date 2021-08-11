@@ -29,6 +29,15 @@
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/accesstoken") and (request.verb = "POST")</Condition>
         </Flow>
+        <Flow name="NotFound">
+            <Description>Not Found</Description>
+            <Request>
+                <Step>
+                    <Name>RaiseNotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
     </Flows>
     <PostFlow name="PostFlow">
         <Request/>
