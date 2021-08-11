@@ -1,5 +1,5 @@
 {
-    "pathToBeerRecipesSpec": "/home/pawtut/softserve/softserve_project/specs/beer_recipes_spec.json",
+    "pathToBeerRecipesSpec": "/home/pawtut/beer-recipes-api",
     "apikey": "veK86MDDYlItCojArSqHc9FJ6JifDx1S",
     "apisecret": "de0R5mDN2rbv06RI",
     "host": "paweltutka-eval-test.apigee.net"
