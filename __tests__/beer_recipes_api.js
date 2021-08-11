@@ -2,6 +2,10 @@ const { default: axios } = require('axios');
 const jestOpenApi = require('jest-openapi');
 const fs = require('fs');
 
+function base64Encode(string) {
+    return Buffer.from(string).toString('base64');
+}
+
 const readConfig = fs.readFileSync('./config.json');
 const parsedConfig = JSON.parse(readConfig);
 
@@ -9,13 +13,9 @@ const parsedConfig = JSON.parse(readConfig);
 const apikey = parsedConfig['apikey'];
 const apisecret = parsedConfig['apisecret'];
 const host = parsedConfig['host'];
-const openApiSpec = parsedConfig['pathToBeerRecipesSpec']
+const openApiSpec = parsedConfig['pathToBeerRecipesSpec'];
 
 const auth = base64Encode(apikey + ":" + apisecret);
-
-function base64Encode(string) {
-    return Buffer.from(string).toString('base64');
-}
 
 async function getToken() {
     let typeBearer = 'Bearer ';
