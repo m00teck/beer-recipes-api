@@ -23,17 +23,13 @@ paths:
       summary: 'Get OAuth token by means of client credentials'
       description: |
         Provides a bearer token to the client.
-      consumes:
-        - application/x-www-form-urlencoded
-      parameters:
-        - name: grant_type
-          in: formData
-          description: |
-            The grant type to be used
-            when requesting a token.
-          required: true
-          schema:
-            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                grant_type:
+                  type: string
       # Expected responses for this operation:
       responses:
         # Response code
@@ -43,8 +39,7 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  $ref: '#/components/schemas/bearerToken'
+                $ref: '#/components/schemas/bearerToken'
         '400':
           description: Bad Request
           content:
@@ -94,13 +89,10 @@ components:
             Expiration of refresh token. Defaults to "0".  
           type: string
         api_product_list:
-          type: array
+          type: string
           description: |
             Products associated with the OAuth token.
-          items:
-            type: string
-          example:
-            - test_product
+          example: test_product
         api_product_list_json:
           type: array
           description: |
