@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="DecodeBase64Auth" version="SHA-512:019dd53b7127792ebf45eec14796f7c3c42b77954e50e22e61e3d9c4c6c9d889c2e14b62de15a7e4989108d564256282131ba4ed21fbfe811beeb0e30606a859"/>
+        <VersionInfo resourceName="GenerateAccessToken" version="SHA-512:b1ae14d06a4c21e6a1eee20c63ccfcb490125c8c4bdd86b56b41f441383d6e0e6d3d3b69b8868618a9e959d90fdcc201c083110b7bfd617005bd0ee72a8881d1"/>
+        <VersionInfo resourceName="RaiseUnauthorized" version="SHA-512:e6c8f90c2dd50bdf101d0b0ab56e3b374b1bfd5f135abb3a3650c80eea80d3e40490a1d204da03aa141b7593517d6ad093fc39a2f3a4115f8e7626d28b4c4f82"/>
+        <VersionInfo resourceName="RemoveRequestHeaders" version="SHA-512:24977a8eb269c34335fc0e7cd2f4f8ee6f55cc14a050edd07cdf6a4e284f7fd618bff82f5e4750eec59aa4e4d2f9a59f20e9e2271133d50e80ff33e1200f3e82"/>
+        <VersionInfo resourceName="VerifyApiKey" version="SHA-512:45fab1c20e5cb199325f248812cc05ccce7330149cdbf451b29c44ffbdc202b3046a84e44fccf689b65ab2bf08b0357d924d008d27310469c709a6b4dfa5bdce"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:e7d64651172dc0a931457ed396fb14a140d868afd876c439f9a98d8f4992c45c384ff0e796d10547b4e2b9d80fb3a481f790d879d6b12902b6da4f31eb7897a9"/>
+    </ProxyEndpoints>
+    <Resources/>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>

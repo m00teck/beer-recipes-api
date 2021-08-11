@@ -1,0 +1,238 @@
+# OpenAPI Version
+openapi: 3.0.2
+
+# This is your document metadata.
+info:
+  version: 0.0.1
+  title: Beer Recipes API
+  description: |
+    This is an example API developed with Apigee.
+
+
+# Target Server of the API
+servers: 
+  - url: https://paweltutka-eval-test.apigee.net/softserve_beerrecipes/v2
+
+# Exposed API: https://paweltutka-eval-test.apigee.net/softserve_beerrecipes/v2
+
+# Paths
+paths:
+  # This is an endpoint path.
+  '/beers':
+    # This is an HTTP operation
+    get:
+      # Describe this verb here. Note: you can use markdown
+      summary: 'Retrieve a list of beer recipes'
+      description: |
+        Retrieves a list of breweries.
+      # This is an array of GET operation parameters:
+      parameters:
+        # An example parameter that is in query and is required
+        - name: id
+          in: query
+          description: |
+            The ID of the recipe to retrieve.
+          required: false
+          schema:
+            type: integer
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        '200':
+          description: Successful response
+          # Response body content.
+          content:
+            # JSON response with a schema referenced from the  
+            # components object.
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      beer_recipes:
+                        items:
+                          $ref: '#/components/schemas/Recipe'
+                        type: array
+                  - type: object
+                    properties:
+                      beer_recipe:
+                        $ref: '#/components/schemas/Recipe'
+
+# security mechanisms used
+security:
+  - apiKey: []
+  - oAuth2ClientCredentials: []
+
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows: 
+        clientCredentials: 
+          tokenUrl: https://api.gettyimages.com/oauth2/token/
+          scopes: {} # Getty Images does not use scopes
+  schemas:
+    # Ingredient object
+    Ingredient:
+      title: Ingredient
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'The name of the ingredient.'
+        amount:
+          $ref: '#/components/schemas/MeasurementUnit'
+          
+    # MeasurementUnit object
+    MeasurementUnit:
+      title: MeasurementUnit
+      type: object
+      properties:
+        value:
+          type: integer
+        unit:
+          description: |
+            Unit of measurement.
+            Example: litres, celsius etc.
+          type: string
+          
+    # A single Recipe object
+    Recipe:
+      title: Recipe
+      type: object
+      properties:
+        id:
+          description: |
+            The ID of the recipe.
+            Format: `25`
+          type: integer
+          example: 25
+          pattern: '[0-9]+'
+        name:
+          description: 'Display name of the recipe.'
+          type: string
+          example: "Bad Pixie"
+        tagline:
+          description: 'Short marketing tag for the recipe.'
+          type: string
+        first_brewed:
+          description: |
+            The month and the year when the recipe was brewed for the first time.
+            Format: `month/year`
+          type: string
+        description:
+          description: 'Short description of the recipe'
+          type: string
+        image_url:
+          description: 'The URL at which the image of the beer is located.'
+          type: string
+        abv:
+          description: |
+            Alcohol By Volume.
+            Used to assess the strength of a particular beer.'
+          type: number
+        ibu:
+          description: |
+            International Bittering Unit. 
+            The IBU scale measures the bitterness levels in beer
+            (based on the amount of hops added).
+          type: number
+        target_fg:
+          description: |
+            Unit showing how much sugar is left over when fermentation is done.
+          type: number
+        target_og:
+          description: |
+            Unit showing how much sugar is present in the wort before it is fermented.
+          type: number
+        ebc:
+          description: |
+            Unit determining beer colour. Used in Europe. Developed by the European Beer Convention.
+            Format: `8`
+          type: integer
+        srm:
+          description: |
+            Standard Reference Method. Unit determining beer colour. Used in USA.
+            Format: `4`
+          type: integer
+        ph:
+          description: |
+            Unit expressing the acidity or alkalinity of the solution.
+            Format: `4`
+          type: number
+        attenuation_level:
+          description: |
+            refers to the conversion of sugars into alcohol and carbon dioxide by the fermentation process;
+            the greater the attenuation, the more sugar has been converted into alcohol.
+            Format: `74.7`
+          type: number
+        volume:
+          description: |
+            The volume of the provided recipe.
+          type: object
+          $ref: '#/components/schemas/MeasurementUnit'
+        boil_volume:
+          description: |
+            The volume of the provided recipe.
+          type: object
+          $ref: '#/components/schemas/MeasurementUnit'
+        method:
+          type: object
+          properties:
+            mash_temp:
+              items:
+                properties:
+                  temp:
+                    $ref: '#/components/schemas/MeasurementUnit'
+                  duration:
+                    type: integer
+              type: array
+            fermentation:
+              type: object
+              properties:
+                temp:
+                  $ref: '#/components/schemas/MeasurementUnit'
+            twist:
+              type: string
+        ingredients:
+          type: object
+          properties:
+            malt:
+              type: array
+              items:
+                $ref: '#/components/schemas/Ingredient'
+            hops:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  amount:
+                    $ref: '#/components/schemas/MeasurementUnit'
+                  add:
+                    type: string
+                  attribute:
+                    type: string
+            yeast:
+              type: string
+              example: 'Wyeast 1056 - American Ale™'
+        food_pairing:
+          type: array
+          items:
+            type: string
+          example:
+            - Hickory smoked ham
+            - Oysters
+            - Rocky Road
+        brewers_tips:
+          example: |
+            After primary fermentation is complete, rack off into a secondary fermeter and add the oak chips to replicate the authentic Islay barrel experience
+          type: string
+        contributed_by:
+          example: "Sam Mason"
+          type: string

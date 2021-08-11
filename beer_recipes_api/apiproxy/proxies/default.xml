@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Condition>(request.header.x-api-key = null) OR (request.header.Authorization = null)</Condition>
+                <Name>RaiseUnauthorized</Name>
+            </Step>
+            <Step>
+                <Name>VerifyApiKey</Name>
+            </Step>
+            <Step>
+                <Name>VerifyOAuthToken</Name>
+            </Step>
+            <Step>
+                <Name>RemoveAuthorization</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="GetBeerRecipes">
+            <Description>Get Beer Recipes from Punk API</Description>
+            <Request>
+                <Step>
+                    <Condition>(request.queryparam.id != null)</Condition>
+                    <Name>verifyId</Name>
+                </Step>
+                <Step>
+                    <Condition>(isRequestError = true)</Condition>
+                    <Name>RaiseBadRequest</Name>
+                </Step>
+                <Step>
+                    <Condition>(request.queryparam.id != null)</Condition>
+                    <Name>ExtractRecipeId</Name>
+                </Step>
+                <Step>
+                    <Condition>(request.queryparam.id != null)</Condition>
+                    <Name>AssignIdToVar</Name>
+                </Step>
+                <Step>
+                    <Condition>(request.queryparam.id != null)</Condition>
+                    <Name>RemoveQueryParamId</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>manipulateApiResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/beers") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="NotFound">
+            <Description>Not Found</Description>
+            <Request>
+                <Step>
+                    <Name>RaiseNotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/softserve_beerrecipes/v2</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

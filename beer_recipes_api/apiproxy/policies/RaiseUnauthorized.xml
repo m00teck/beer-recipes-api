@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseUnauthorized">
+    <DisplayName>RaiseUnauthorized</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorized</ReasonPhrase>
+            <Payload contentType="application/json">
+                {
+                    "message": "Please provide a valid API Key and a valid OAuth Token."
+                }
+            </Payload>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="softserve_beerRecipes">
+    <Basepaths>/softserve_beerrecipes</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1628599911099</CreatedAt>
+    <CreatedBy>pawel_tutka@outlook.com</CreatedBy>
+    <Description>Beer Recipes</Description>
+    <DisplayName>softserve_beerRecipes</DisplayName>
+    <LastModifiedAt>1628687537992</LastModifiedAt>
+    <LastModifiedBy>pawel_tutka@outlook.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:2a774ebdf2f81a80e8f5cb2cd961e785c409e8dc0d81cb55eef7ceb02184d86e660fc3deac50f12e4867402d6386e730ecc25adcf3ebdf4a106b795c6da5035d:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>AssignIdToVar</Policy>
+        <Policy>ExtractRecipeId</Policy>
+        <Policy>RaiseBadRequest</Policy>
+        <Policy>RaiseNotFound</Policy>
+        <Policy>RaiseUnauthorized</Policy>
+        <Policy>RemoveAuthorization</Policy>
+        <Policy>RemoveQueryParamId</Policy>
+        <Policy>VerifyApiKey</Policy>
+        <Policy>VerifyOAuthToken</Policy>
+        <Policy>manipulateApiResponse</Policy>
+        <Policy>verifyId</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://manipulateApiResponse.js</Resource>
+        <Resource>jsc://verifyId.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

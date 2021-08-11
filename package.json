@@ -1,0 +1,16 @@
+{
+  "name": "softserve_project",
+  "version": "1.0.0",
+  "description": "No description here",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Paweł Tutka",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jest": "^27.0.6",
+    "jest-openapi": "^0.13.0"
+  }
+}

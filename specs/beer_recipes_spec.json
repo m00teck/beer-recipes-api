@@ -1,0 +1,776 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "0.0.1",
+    "title": "Beer Recipes API",
+    "description": "This is an example API developed with Apigee.\n"
+  },
+  "servers": [
+    {
+      "url": "https://paweltutka-eval-test.apigee.net/softserve_beerrecipes/v2"
+    }
+  ],
+  "paths": {
+    "/beers": {
+      "get": {
+        "summary": "Retrieve a list of beer recipes",
+        "description": "Retrieves a list of breweries.\n",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The ID of the recipe to retrieve.\n",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "beer_recipes": {
+                          "items": {
+                            "title": "Recipe",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the recipe.\nFormat: `25`\n",
+                                "type": "integer",
+                                "example": 25,
+                                "pattern": "[0-9]+"
+                              },
+                              "name": {
+                                "description": "Display name of the recipe.",
+                                "type": "string",
+                                "example": "Bad Pixie"
+                              },
+                              "tagline": {
+                                "description": "Short marketing tag for the recipe.",
+                                "type": "string"
+                              },
+                              "first_brewed": {
+                                "description": "The month and the year when the recipe was brewed for the first time.\nFormat: `month/year`\n",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Short description of the recipe",
+                                "type": "string"
+                              },
+                              "image_url": {
+                                "description": "The URL at which the image of the beer is located.",
+                                "type": "string"
+                              },
+                              "abv": {
+                                "description": "Alcohol By Volume.\nUsed to assess the strength of a particular beer.'\n",
+                                "type": "number"
+                              },
+                              "ibu": {
+                                "description": "International Bittering Unit. \nThe IBU scale measures the bitterness levels in beer\n(based on the amount of hops added).\n",
+                                "type": "number"
+                              },
+                              "target_fg": {
+                                "description": "Unit showing how much sugar is left over when fermentation is done.\n",
+                                "type": "number"
+                              },
+                              "target_og": {
+                                "description": "Unit showing how much sugar is present in the wort before it is fermented.\n",
+                                "type": "number"
+                              },
+                              "ebc": {
+                                "description": "Unit determining beer colour. Used in Europe. Developed by the European Beer Convention.\nFormat: `8`\n",
+                                "type": "integer"
+                              },
+                              "srm": {
+                                "description": "Standard Reference Method. Unit determining beer colour. Used in USA.\nFormat: `4`\n",
+                                "type": "integer"
+                              },
+                              "ph": {
+                                "description": "Unit expressing the acidity or alkalinity of the solution.\nFormat: `4`\n",
+                                "type": "number"
+                              },
+                              "attenuation_level": {
+                                "description": "refers to the conversion of sugars into alcohol and carbon dioxide by the fermentation process;\nthe greater the attenuation, the more sugar has been converted into alcohol.\nFormat: `74.7`\n",
+                                "type": "number"
+                              },
+                              "volume": {
+                                "description": "The volume of the provided recipe.\n",
+                                "type": "object",
+                                "title": "MeasurementUnit",
+                                "properties": {
+                                  "value": {
+                                    "type": "integer"
+                                  },
+                                  "unit": {
+                                    "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "boil_volume": {
+                                "description": "The volume of the provided recipe.\n",
+                                "type": "object",
+                                "title": "MeasurementUnit",
+                                "properties": {
+                                  "value": {
+                                    "type": "integer"
+                                  },
+                                  "unit": {
+                                    "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "method": {
+                                "type": "object",
+                                "properties": {
+                                  "mash_temp": {
+                                    "items": {
+                                      "properties": {
+                                        "temp": {
+                                          "title": "MeasurementUnit",
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "integer"
+                                            },
+                                            "unit": {
+                                              "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "duration": {
+                                          "type": "integer"
+                                        }
+                                      }
+                                    },
+                                    "type": "array"
+                                  },
+                                  "fermentation": {
+                                    "type": "object",
+                                    "properties": {
+                                      "temp": {
+                                        "title": "MeasurementUnit",
+                                        "type": "object",
+                                        "properties": {
+                                          "value": {
+                                            "type": "integer"
+                                          },
+                                          "unit": {
+                                            "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "twist": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "ingredients": {
+                                "type": "object",
+                                "properties": {
+                                  "malt": {
+                                    "type": "array",
+                                    "items": {
+                                      "title": "Ingredient",
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string",
+                                          "description": "The name of the ingredient."
+                                        },
+                                        "amount": {
+                                          "title": "MeasurementUnit",
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "integer"
+                                            },
+                                            "unit": {
+                                              "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                              "type": "string"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "hops": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "amount": {
+                                          "title": "MeasurementUnit",
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "integer"
+                                            },
+                                            "unit": {
+                                              "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                              "type": "string"
+                                            }
+                                          }
+                                        },
+                                        "add": {
+                                          "type": "string"
+                                        },
+                                        "attribute": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "yeast": {
+                                    "type": "string",
+                                    "example": "Wyeast 1056 - American Ale™"
+                                  }
+                                }
+                              },
+                              "food_pairing": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "example": [
+                                  "Hickory smoked ham",
+                                  "Oysters",
+                                  "Rocky Road"
+                                ]
+                              },
+                              "brewers_tips": {
+                                "example": "After primary fermentation is complete, rack off into a secondary fermeter and add the oak chips to replicate the authentic Islay barrel experience\n",
+                                "type": "string"
+                              },
+                              "contributed_by": {
+                                "example": "Sam Mason",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "type": "array"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "beer_recipe": {
+                          "title": "Recipe",
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the recipe.\nFormat: `25`\n",
+                              "type": "integer",
+                              "example": 25,
+                              "pattern": "[0-9]+"
+                            },
+                            "name": {
+                              "description": "Display name of the recipe.",
+                              "type": "string",
+                              "example": "Bad Pixie"
+                            },
+                            "tagline": {
+                              "description": "Short marketing tag for the recipe.",
+                              "type": "string"
+                            },
+                            "first_brewed": {
+                              "description": "The month and the year when the recipe was brewed for the first time.\nFormat: `month/year`\n",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "Short description of the recipe",
+                              "type": "string"
+                            },
+                            "image_url": {
+                              "description": "The URL at which the image of the beer is located.",
+                              "type": "string"
+                            },
+                            "abv": {
+                              "description": "Alcohol By Volume.\nUsed to assess the strength of a particular beer.'\n",
+                              "type": "number"
+                            },
+                            "ibu": {
+                              "description": "International Bittering Unit. \nThe IBU scale measures the bitterness levels in beer\n(based on the amount of hops added).\n",
+                              "type": "number"
+                            },
+                            "target_fg": {
+                              "description": "Unit showing how much sugar is left over when fermentation is done.\n",
+                              "type": "number"
+                            },
+                            "target_og": {
+                              "description": "Unit showing how much sugar is present in the wort before it is fermented.\n",
+                              "type": "number"
+                            },
+                            "ebc": {
+                              "description": "Unit determining beer colour. Used in Europe. Developed by the European Beer Convention.\nFormat: `8`\n",
+                              "type": "integer"
+                            },
+                            "srm": {
+                              "description": "Standard Reference Method. Unit determining beer colour. Used in USA.\nFormat: `4`\n",
+                              "type": "integer"
+                            },
+                            "ph": {
+                              "description": "Unit expressing the acidity or alkalinity of the solution.\nFormat: `4`\n",
+                              "type": "number"
+                            },
+                            "attenuation_level": {
+                              "description": "refers to the conversion of sugars into alcohol and carbon dioxide by the fermentation process;\nthe greater the attenuation, the more sugar has been converted into alcohol.\nFormat: `74.7`\n",
+                              "type": "number"
+                            },
+                            "volume": {
+                              "description": "The volume of the provided recipe.\n",
+                              "type": "object",
+                              "title": "MeasurementUnit",
+                              "properties": {
+                                "value": {
+                                  "type": "integer"
+                                },
+                                "unit": {
+                                  "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "boil_volume": {
+                              "description": "The volume of the provided recipe.\n",
+                              "type": "object",
+                              "title": "MeasurementUnit",
+                              "properties": {
+                                "value": {
+                                  "type": "integer"
+                                },
+                                "unit": {
+                                  "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "method": {
+                              "type": "object",
+                              "properties": {
+                                "mash_temp": {
+                                  "items": {
+                                    "properties": {
+                                      "temp": {
+                                        "title": "MeasurementUnit",
+                                        "type": "object",
+                                        "properties": {
+                                          "value": {
+                                            "type": "integer"
+                                          },
+                                          "unit": {
+                                            "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "duration": {
+                                        "type": "integer"
+                                      }
+                                    }
+                                  },
+                                  "type": "array"
+                                },
+                                "fermentation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "temp": {
+                                      "title": "MeasurementUnit",
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "integer"
+                                        },
+                                        "unit": {
+                                          "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "twist": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "ingredients": {
+                              "type": "object",
+                              "properties": {
+                                "malt": {
+                                  "type": "array",
+                                  "items": {
+                                    "title": "Ingredient",
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "description": "The name of the ingredient."
+                                      },
+                                      "amount": {
+                                        "title": "MeasurementUnit",
+                                        "type": "object",
+                                        "properties": {
+                                          "value": {
+                                            "type": "integer"
+                                          },
+                                          "unit": {
+                                            "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "hops": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "amount": {
+                                        "title": "MeasurementUnit",
+                                        "type": "object",
+                                        "properties": {
+                                          "value": {
+                                            "type": "integer"
+                                          },
+                                          "unit": {
+                                            "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "add": {
+                                        "type": "string"
+                                      },
+                                      "attribute": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "yeast": {
+                                  "type": "string",
+                                  "example": "Wyeast 1056 - American Ale™"
+                                }
+                              }
+                            },
+                            "food_pairing": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "Hickory smoked ham",
+                                "Oysters",
+                                "Rocky Road"
+                              ]
+                            },
+                            "brewers_tips": {
+                              "example": "After primary fermentation is complete, rack off into a secondary fermeter and add the oak chips to replicate the authentic Islay barrel experience\n",
+                              "type": "string"
+                            },
+                            "contributed_by": {
+                              "example": "Sam Mason",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Ingredient": {
+        "title": "Ingredient",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the ingredient."
+          },
+          "amount": {
+            "title": "MeasurementUnit",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer"
+              },
+              "unit": {
+                "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "MeasurementUnit": {
+        "title": "MeasurementUnit",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer"
+          },
+          "unit": {
+            "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+            "type": "string"
+          }
+        }
+      },
+      "Recipe": {
+        "title": "Recipe",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The ID of the recipe.\nFormat: `25`\n",
+            "type": "integer",
+            "example": 25,
+            "pattern": "[0-9]+"
+          },
+          "name": {
+            "description": "Display name of the recipe.",
+            "type": "string",
+            "example": "Bad Pixie"
+          },
+          "tagline": {
+            "description": "Short marketing tag for the recipe.",
+            "type": "string"
+          },
+          "first_brewed": {
+            "description": "The month and the year when the recipe was brewed for the first time.\nFormat: `month/year`\n",
+            "type": "string"
+          },
+          "description": {
+            "description": "Short description of the recipe",
+            "type": "string"
+          },
+          "image_url": {
+            "description": "The URL at which the image of the beer is located.",
+            "type": "string"
+          },
+          "abv": {
+            "description": "Alcohol By Volume.\nUsed to assess the strength of a particular beer.'\n",
+            "type": "number"
+          },
+          "ibu": {
+            "description": "International Bittering Unit. \nThe IBU scale measures the bitterness levels in beer\n(based on the amount of hops added).\n",
+            "type": "number"
+          },
+          "target_fg": {
+            "description": "Unit showing how much sugar is left over when fermentation is done.\n",
+            "type": "number"
+          },
+          "target_og": {
+            "description": "Unit showing how much sugar is present in the wort before it is fermented.\n",
+            "type": "number"
+          },
+          "ebc": {
+            "description": "Unit determining beer colour. Used in Europe. Developed by the European Beer Convention.\nFormat: `8`\n",
+            "type": "integer"
+          },
+          "srm": {
+            "description": "Standard Reference Method. Unit determining beer colour. Used in USA.\nFormat: `4`\n",
+            "type": "integer"
+          },
+          "ph": {
+            "description": "Unit expressing the acidity or alkalinity of the solution.\nFormat: `4`\n",
+            "type": "number"
+          },
+          "attenuation_level": {
+            "description": "refers to the conversion of sugars into alcohol and carbon dioxide by the fermentation process;\nthe greater the attenuation, the more sugar has been converted into alcohol.\nFormat: `74.7`\n",
+            "type": "number"
+          },
+          "volume": {
+            "description": "The volume of the provided recipe.\n",
+            "type": "object",
+            "title": "MeasurementUnit",
+            "properties": {
+              "value": {
+                "type": "integer"
+              },
+              "unit": {
+                "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                "type": "string"
+              }
+            }
+          },
+          "boil_volume": {
+            "description": "The volume of the provided recipe.\n",
+            "type": "object",
+            "title": "MeasurementUnit",
+            "properties": {
+              "value": {
+                "type": "integer"
+              },
+              "unit": {
+                "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                "type": "string"
+              }
+            }
+          },
+          "method": {
+            "type": "object",
+            "properties": {
+              "mash_temp": {
+                "items": {
+                  "properties": {
+                    "temp": {
+                      "title": "MeasurementUnit",
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        },
+                        "unit": {
+                          "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "duration": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              "fermentation": {
+                "type": "object",
+                "properties": {
+                  "temp": {
+                    "title": "MeasurementUnit",
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "integer"
+                      },
+                      "unit": {
+                        "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "twist": {
+                "type": "string"
+              }
+            }
+          },
+          "ingredients": {
+            "type": "object",
+            "properties": {
+              "malt": {
+                "type": "array",
+                "items": {
+                  "title": "Ingredient",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the ingredient."
+                    },
+                    "amount": {
+                      "title": "MeasurementUnit",
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        },
+                        "unit": {
+                          "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "hops": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "title": "MeasurementUnit",
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        },
+                        "unit": {
+                          "description": "Unit of measurement.\nExample: litres, celsius etc.\n",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "add": {
+                      "type": "string"
+                    },
+                    "attribute": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "yeast": {
+                "type": "string",
+                "example": "Wyeast 1056 - American Ale™"
+              }
+            }
+          },
+          "food_pairing": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Hickory smoked ham",
+              "Oysters",
+              "Rocky Road"
+            ]
+          },
+          "brewers_tips": {
+            "example": "After primary fermentation is complete, rack off into a secondary fermeter and add the oak chips to replicate the authentic Islay barrel experience\n",
+            "type": "string"
+          },
+          "contributed_by": {
+            "example": "Sam Mason",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

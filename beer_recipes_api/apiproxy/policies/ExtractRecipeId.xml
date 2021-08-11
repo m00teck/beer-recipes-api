@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractRecipeId">
+    <DisplayName>ExtractRecipeId</DisplayName>
+    <QueryParam name="id">
+        <Pattern ignoreCase="false">{id}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>clientrequest</VariablePrefix>
+</ExtractVariables>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignIdToVar">
+    <DisplayName>AssignIdToVar</DisplayName>
+    <AssignVariable>
+        <Name>recipeId</Name>
+        <Ref>clientrequest.id</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
