@@ -9,7 +9,7 @@
                     "message": "You have specified an incorrect format of the id parameter. Please provide an integer."
                 }
             </Payload>
-            <StatusCode>500</StatusCode>
+            <StatusCode>400</StatusCode>
             <ReasonPhrase>Bad Request</ReasonPhrase>
         </Set>
     </FaultResponse>
