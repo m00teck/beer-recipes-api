@@ -17,17 +17,12 @@ servers:
 
 # Paths
 paths:
-  # This is an endpoint path.
   '/beers':
-    # This is an HTTP operation
     get:
-      # Describe this verb here. Note: you can use markdown
       summary: 'Retrieve a list of beer recipes'
       description: |
         Retrieves a list of breweries.
-      # This is an array of GET operation parameters:
       parameters:
-        # An example parameter that is in query and is required
         - name: id
           in: query
           description: |
@@ -40,10 +35,7 @@ paths:
         # Response code
         '200':
           description: Successful response
-          # Response body content.
           content:
-            # JSON response with a schema referenced from the  
-            # components object.
             application/json:
               schema:
                 oneOf:
@@ -57,15 +49,26 @@ paths:
                     properties:
                       beer_recipe:
                         $ref: '#/components/schemas/Recipe'
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Not found
 
 # security mechanisms used
 security:
   - apiKey: []
-  - oAuth2ClientCredentials: []
+  - oAuth2ClientCredentials: [read]
 
 components:
   securitySchemes:
-    apiKey:
+    apiKeyAuth:
       type: apiKey
       in: header
       name: x-api-key
@@ -73,8 +76,9 @@ components:
       type: oauth2
       flows: 
         clientCredentials: 
-          tokenUrl: https://api.gettyimages.com/oauth2/token/
-          scopes: {} # Getty Images does not use scopes
+          tokenUrl: https://paweltutka-eval-test.apigee.net/softserve_oauth/accesstoken
+          scopes:
+            read: 'Grant only read access'
   schemas:
     # Ingredient object
     Ingredient:
