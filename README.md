@@ -1,4 +1,4 @@
-# beer-recipes-api
+# The Beer Recipes API
 My own project for Beer Recipes API.
 
 ## Initial config
