@@ -15,6 +15,8 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
 }
 ```
 
+Make sure to provide the absolute path to the correct specification, otherwise Jest will not be able to read the proper specification for the test.
+
 ## Setting up Apigee
 
 1. Upload the API Proxy zip files from 'beer_recipes_api' and 'oauth_api' directories to Apigee platform of your choice. 
@@ -24,7 +26,7 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
 
 ## Setting up the environment
 
-Set up the environment using the apt package manager:
+Set up the Linux environment using the apt package manager (I used Ubuntu):
 
 ```bash
 sudo apt-get update
