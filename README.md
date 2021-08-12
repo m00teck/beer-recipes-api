@@ -37,6 +37,14 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 ```
 
+## Installing dependencies
+
+In the root directory of the repo, run the following command:
+
+```bash
+npm install
+```
+
 ## Tests
 
 To run tests, run the following command in the root directory of this repo:
