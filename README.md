@@ -14,3 +14,21 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
     "host": "paweltutka-eval-test.apigee.net"
 }
 ```
+
+## Setting up the environment
+
+Set up the environment using the apt package manager:
+
+```bash
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+```
+
+## Tests
+
+To run tests, run the following command in the root directory of this repo:
+
+```bash
+npm run test
+```
