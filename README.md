@@ -15,6 +15,8 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
 }
 ```
 
+### CAUTION
+
 Make sure to provide the absolute path to the correct specification, otherwise Jest will not be able to read the proper specification for the test.
 
 ## Setting up Apigee
