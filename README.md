@@ -7,7 +7,8 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
 
 ```json
 {
-    "pathToBeerRecipesSpec": "/home/pawtut/beer-recipes-api",
+    "pathToBeerRecipesSpec": "/home/vagrant/beer-recipes-api/specs/beer_recipes_spec.json",
+    "pathToOAuthSpec": "/home/vagrant/beer-recipes-api/specs/oauth_spec.json",
     "apikey": "veK86MDDYlItCojArSqHc9FJ6JifDx1S",
     "apisecret": "de0R5mDN2rbv06RI",
     "host": "paweltutka-eval-test.apigee.net"
