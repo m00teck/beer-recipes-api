@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
     <Policies>
-        <VersionInfo resourceName="AssignIdToVar" version="SHA-512:20a2852293dfcb050c46fb860e55bc583dbf797b98226ba9302ca0bd034ed20b47bbf59e5b8eec6209e87aecf678ee63ae1b56ca7473d55f20024748ff85fbcc"/>
-        <VersionInfo resourceName="ExtractRecipeId" version="SHA-512:3b80e7a66dfa486dc939b4ce3b084e7f5bb90bf39e49ef49389788a37023cec8c81da6abfb5a0539f88f74bf8635d9b5228ed562085a055c3d86d436dd958e09"/>
-        <VersionInfo resourceName="RaiseBadRequest" version="SHA-512:0a8738a0880d7406d8a78741ed86412db45939364cdde95f75a6c71d5f0cf4d0c2a93f07b94be909683b4ae207b4c5ff7e44b886a3a160bcd6287e6b6d0b5679"/>
-        <VersionInfo resourceName="RaiseNotFound" version="SHA-512:dbfe2bfbd5bd12576ac937b4c4cab291e183f127693dfb712bdef4e3f1a84e92a146b7c77559f25b2ba1bfa30b877f6ffddb4b618ea08b61aa9c29c5a008b514"/>
-        <VersionInfo resourceName="RaiseUnauthorized" version="SHA-512:3d9d053932272710a6811d3b07b7e36005cd0341c88514376bb428099cb6d7833cf4ee66044d2c967d599d153e06dd901cf503ba921b5096180a52b9229fdadd"/>
-        <VersionInfo resourceName="RemoveAuthorization" version="SHA-512:af2de7d549556c202bc37c5ae52630aafa7aec6744c85426b099e8bc780a2dd367c9da255facec58b5938d6c61addbada8c7e8ebf945624b7e7908b16216c241"/>
-        <VersionInfo resourceName="RemoveQueryParamId" version="SHA-512:f44a83b31faa4b3f75918f5317d5c9b6ba95d2e738f6ac99147a4c0e61ef8aa4ce88f9734c9e9d15a76d67cfd31f3dfc6c0a5c784545c8b2588b384f89d2d5de"/>
-        <VersionInfo resourceName="VerifyApiKey" version="SHA-512:f614cc8e538e3ffe300b994929f2559d2a7b1bfe8d35f2e331cada523faf5f106c091890714fccc4c9e8be57ee99c5f5fcce565b2bced1f2d032a626d0bbc18d"/>
+        <VersionInfo resourceName="AssignIdToVar" version="SHA-512:c37d72ab6bff4c42fed7ebc027493f5559bd3b5dcade7729e855ccac5ed49d811fe93f17c05abaab98814443d57455c8625b8cc7ceb276f998e56bc3ea432dc0"/>
+        <VersionInfo resourceName="ExtractRecipeId" version="SHA-512:d42777eca186141540fd8769586cca7e8f30aa43e1a74f7a08b486683e0c438491fc6e1a4b979268bfaa5ab25364a3ac3132102564bfabf62e2dbe37ea8ede7b"/>
+        <VersionInfo resourceName="RaiseBadRequest" version="SHA-512:8f1dde87c5b07adc0049ce0d78f8bc6a48f3635f7e3ea3a26f579f7d1141bf2d3ab4ebbd69117766e80b8bb6031d3216adfa82f8c72bbba2c452bfe16b5eeb7f"/>
+        <VersionInfo resourceName="RaiseNotFound" version="SHA-512:efc8c6a113d025f7f6f1c1756abfed15947fc176c7b75826479bda803d0017ab59cd4a350a77508b3fa9534c48100a2d3195b47a0d7b6bea87be29f8a2bdc5b8"/>
+        <VersionInfo resourceName="RaiseUnauthorized" version="SHA-512:2eba438ade99ce4c762fd6dc1d786a26884b10f8f834dd1e5d1b91fb0744b1f23fdda792ca1d1a8df3438295c027d0a2a58a42cdc1818c3acaf12c2b97887e87"/>
+        <VersionInfo resourceName="RemoveAuthorization" version="SHA-512:32f8bc93fbaa365a6a5a0ca19eff09574747560550709a36e179285a370bf53814ce8a51af1a1780292fe362da2a1f7fb0a7fe5c05e6c2a041a26ad24ef0d6ea"/>
+        <VersionInfo resourceName="RemoveQueryParamId" version="SHA-512:9b28acf47f667a8921e36119f1d345b805411d7f48d07d8e661d925ba73cad9649b75043bdc9a1087a52513e44d86c6947a6ed0580281cdf18ce13179e41c69e"/>
+        <VersionInfo resourceName="VerifyApiKey" version="SHA-512:a6c2a5080c3867d4caab1818be05227a25b299d8a5df4c1a0344dc0fcb7f745be4f939f901f2091e9870209f7c7614d3b8e1ec07a0b329157bc8b8f65891ba66"/>
         <VersionInfo resourceName="VerifyOAuthToken" version="SHA-512:224d7f76405794ab994747dbbcc39428f98bd740f9973b04af4b61c416c2703d58ccfa11863c4449be39c0b865849b6c4a872b1bdfd1794f43cfecb18b11299e"/>
-        <VersionInfo resourceName="manipulateApiResponse" version="SHA-512:277088ab22c11803e09959c92aa3aec3168967c7d20b30a65db6da42f0a4d3c8f21d5483bdccc42456f69eee08d67dd298364916a480d147a4e1a4458a56c3b7"/>
-        <VersionInfo resourceName="verifyId" version="SHA-512:19e36a982497d6993787c125193af6db06fd2518ec478620c800f33e8c607a87835ba9ca55f72666479fcc6cd7e763ebcbc6297a54e094b70449b04c1f910314"/>
+        <VersionInfo resourceName="manipulateApiResponse" version="SHA-512:50144ad89b56b245b195a8fac0621b758bedd6418fd8899823625314748851095508e892f5f6fe7a50cf826c95f5bac0f0ed9fc6d9feaabe16a1e6a8a62ee8d0"/>
+        <VersionInfo resourceName="verifyId" version="SHA-512:69420c448bfe82f94b0d221e1065e9e9cc35b4463831cf73f204318876055cd9d88b7b0700a3462138b34cdbbd13305d7e91e5d4d5b53890b10f83c441fd3450"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:2b24bf9c96b83728a07bbba57d2e49ab17d8980c095855ab246963955d6d5ab3639fdd23b76b81528ab91591c076be358de73e0c23a7cf126d5054ea052dbbe5"/>
+        <VersionInfo resourceName="default" version="SHA-512:4e7bf97f15ce8119243ceccdb2a7d070179ad3bfe3c5bd128de115e65c1f6de9c2aae79865b0a54100cd1a7a6d7d845040a143ad9ef73b54041040e1ccd40128"/>
     </ProxyEndpoints>
     <Resources>
-        <VersionInfo resourceName="jsc://manipulateApiResponse.js" version="SHA-512:2da18fad66c715fd69eb1b2584156d6eec3c92aaa8a7c8a396af9c2b40d9238652bdabe889672f1628a0e805925be3c3262fc78d2ddf5f8967060abbbc14c499"/>
-        <VersionInfo resourceName="jsc://verifyId.js" version="SHA-512:ed29863d2821245fb5ac3d0efaad2e796690f94d1712067ad8f8717099f35fd955a244695a802a831ef4de7011c94abb70d3923e407b0a87d02523db587fa276"/>
+        <VersionInfo resourceName="jsc://manipulateApiResponse.js" version="SHA-512:5fda36e64a3ff0c3917fbca74f54cc725317c57d8c59977332017175ea0e7c497a971ecbec8ad92e08ed26bcdbc27ef178a98095688420563c5c6ef62af01ed7"/>
+        <VersionInfo resourceName="jsc://verifyId.js" version="SHA-512:e3e6c8027a004060007ae1c5dab3886450e105595984d04e2928f69a24bf731dd10cebcff5ed481a28b88a09d5dee07901902855ee5ed3ee1e51fae92c3f5250"/>
     </Resources>
     <SharedFlows/>
     <TargetEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:e714e45e2d2d9a99c7b903ab4be7948d837036bb88a9036759728c372d2de1cf8da0cf6ade51c57d23157a6b7e6a2f2773fe107f0da7d9da7b13030150017d63"/>
+        <VersionInfo resourceName="default" version="SHA-512:2033220643e515fa58f6478d500f1917e3f9362f0be8dc16dcd235206088644654cfbf0841fdf5f68435b3d2ae5e20a667fd4cfabd14f7fffe91ea7ddf27565b"/>
     </TargetEndpoints>
 </Manifest>

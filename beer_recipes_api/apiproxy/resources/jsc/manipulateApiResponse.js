@@ -11,6 +11,15 @@ if(recipeId === null) {
     var arrayRecipes = parsedResponse;
 
     var recipeOutput = arrayRecipes.filter(id => id['id'] == recipeId);
-    recipes['beer_recipe'] = recipeOutput[0];
-    context.setVariable("response.content", JSON.stringify(recipes));
+    
+    if(recipeOutput.length === 0) {
+        var emptyResponse = {
+            message: "The provided id of the recipe does not exist."
+        }
+        context.setVariable("response.content", JSON.stringify(emptyResponse));
+        recipes['beer_recipe'] = recipeOutput[0];
+    } else {
+        context.setVariable("response.content", JSON.stringify(recipes));
+    }
+    
 }
