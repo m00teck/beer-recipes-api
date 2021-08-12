@@ -17,8 +17,9 @@ if(recipeId === null) {
             message: "The provided id of the recipe does not exist."
         }
         context.setVariable("response.content", JSON.stringify(emptyResponse));
-        recipes['beer_recipe'] = recipeOutput[0];
+        
     } else {
+        recipes['beer_recipe'] = recipeOutput[0];
         context.setVariable("response.content", JSON.stringify(recipes));
     }
     

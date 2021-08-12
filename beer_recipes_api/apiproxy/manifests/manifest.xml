@@ -17,7 +17,7 @@
         <VersionInfo resourceName="default" version="SHA-512:4e7bf97f15ce8119243ceccdb2a7d070179ad3bfe3c5bd128de115e65c1f6de9c2aae79865b0a54100cd1a7a6d7d845040a143ad9ef73b54041040e1ccd40128"/>
     </ProxyEndpoints>
     <Resources>
-        <VersionInfo resourceName="jsc://manipulateApiResponse.js" version="SHA-512:5fda36e64a3ff0c3917fbca74f54cc725317c57d8c59977332017175ea0e7c497a971ecbec8ad92e08ed26bcdbc27ef178a98095688420563c5c6ef62af01ed7"/>
+        <VersionInfo resourceName="jsc://manipulateApiResponse.js" version="SHA-512:9722f04948901efc963357107ea2323b2184747a9d808d38bbd65b82156000c5852090aaf7d84b1b0ef7144b92604c57018783f1fb8e248b3b0276e39e6ba284"/>
         <VersionInfo resourceName="jsc://verifyId.js" version="SHA-512:e3e6c8027a004060007ae1c5dab3886450e105595984d04e2928f69a24bf731dd10cebcff5ed481a28b88a09d5dee07901902855ee5ed3ee1e51fae92c3f5250"/>
     </Resources>
     <SharedFlows/>

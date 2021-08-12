@@ -6,9 +6,9 @@
     <CreatedBy>pawel_tutka@outlook.com</CreatedBy>
     <Description>Beer Recipes</Description>
     <DisplayName>softserve_beerRecipes</DisplayName>
-    <LastModifiedAt>1628752503244</LastModifiedAt>
+    <LastModifiedAt>1628752750948</LastModifiedAt>
     <LastModifiedBy>pawel_tutka@outlook.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:51c368f6051fd6a70e0f318ccd422be7863fdd2af627692c4b3652e64d0fe1ce30c4a9dac516f98723d7f2b2b3a933f81fa4842f94787283e4155c6a428e9248:us-east-1</ManifestVersion>
+    <ManifestVersion>SHA-512:2922ad841b1cf1f71e74a902bacf6d9ad7e4335fb3438f8d9c4abe26a5fde688d219def4d0231225b8a53329271270cc98811a7cb521527e3bdd73a1a704db64:us-east-1</ManifestVersion>
     <Policies>
         <Policy>AssignIdToVar</Policy>
         <Policy>ExtractRecipeId</Policy>
