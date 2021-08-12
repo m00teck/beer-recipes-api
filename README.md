@@ -15,6 +15,10 @@ The file "config.json" has to be updated, if you plan on deploying the proxies t
 }
 ```
 
+## Setting up Apigee
+
+
+
 ## Setting up the environment
 
 Set up the environment using the apt package manager:
