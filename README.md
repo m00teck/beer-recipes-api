@@ -21,10 +21,11 @@ Make sure to provide the absolute path to the correct specification, otherwise J
 
 ## Setting up Apigee
 
-1. Upload the API Proxy zip files from 'beer_recipes_api' and 'oauth_api' directories to Apigee platform of your choice. 
-2. Create API Product on Apigee (add the appropriate API Proxy bundles to the config, the rest of config is your choice).
-3. Create Developer.
-4. Create Developer App and associate the API key and API secret with the above-mentioned API Product.
+1. Upload the API Proxy zip files from 'beer_recipes_api' and 'oauth_api' directories to Apigee platform of your choice.
+2. Deploy the up-to-date revision of both API Proxies.
+3. Create API Product on Apigee (add the appropriate API Proxy bundles to the config, the rest of config is your choice).
+4. Create Developer.
+5. Create Developer App and associate the API key and API secret with the above-mentioned API Product.
 
 ## Setting up the environment
 
